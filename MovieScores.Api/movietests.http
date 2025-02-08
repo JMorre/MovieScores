@@ -1,0 +1,40 @@
+// delete db, run all
+### empty result
+GET http://localhost:5015/movies
+
+### 404 not found
+GET http://localhost:5015/movies/1
+
+### creates adds to DB
+POST http://localhost:5015/movies
+Content-Type: application/json
+
+{
+    "title": "Casino Royale",
+    "genreId": 4,
+    "releaseDate": "1967-04-28",
+    "score": 26
+}
+
+### replace w/new movie, no content return
+PUT http://localhost:5015/movies/1
+Content-Type: application/json
+
+{
+    "title": "Casino Royale",
+    "genreId": 2,
+    "releaseDate": "2006-11-17",
+    "score": 94
+}
+
+### list of 1 movie
+GET http://localhost:5015/movies
+
+### returns movie
+GET http://localhost:5015/movies/1
+
+### deletes from db, no content
+DELETE http://localhost:5015/movies/1
+
+### empty result
+GET http://localhost:5015/movies
